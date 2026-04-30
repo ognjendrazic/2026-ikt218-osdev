@@ -5,7 +5,6 @@
 static struct gdt_entry gdt[3];
 
 // This structure is passed directly to the lgdt instruction (via gdt_flush).
-// It is defined here so gdt_flush (in gdt.asm) can reference it if needed,
 // but we pass its address as a function argument instead.
 static struct gdt_ptr gdt_descriptor;
 
@@ -35,19 +34,19 @@ void gdt_init(void) {
 
     // Entry 0 - Null descriptor.
     // The CPU requires the first GDT entry to be all zeros.
-    // Any segment load with selector 0 causes a #GP fault (by design).
+    // Any segment load with selector 0 causes a #GP fault.
     set_entry(0, 0, 0, 0x00, 0x0);
 
     // Entry 1 - Kernel code segment.
     // Base=0, Limit=4 GB (0xFFFFF pages × 4 KB granularity).
     // Access 0x9A = 1001 1010b:
-    //   Bit 7 (P)   = 1  present
-    //   Bits 6:5 (DPL) = 00  ring 0
-    //   Bit 4 (S)   = 1  code/data descriptor
-    //   Bits 3:0 (Type) = 1010  code, readable, non-conforming
+    // Bit 7 (P) = 1 present
+    // Bits 6:5 (DPL) = 00  ring 0
+    // Bit 4 (S) = 1 code/data descriptor
+    // Bits 3:0 (Type) = 1010  code, readable, non-conforming
     // Flags 0xC = 1100b:
-    //   Bit 3 (G)   = 1  4 KB page granularity
-    //   Bit 2 (D/B) = 1  32-bit protected mode
+    // Bit 3 (G) = 1 4 KB page granularity
+    // Bit 2 (D/B) = 1 32-bit protected mode
     set_entry(1, 0, 0xFFFFF, 0x9A, 0xC);
 
     // Entry 2 - Kernel data segment.

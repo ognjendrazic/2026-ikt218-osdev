@@ -4,8 +4,8 @@
 ; It must appear within the first 32 KiB of the image and be 8-byte aligned.
 ; After verifying the header, the bootloader jumps to _start in 32-bit
 ; protected mode with:
-;   EAX = 0x36D76289  (Multiboot2 magic value)
-;   EBX = physical address of the Multiboot2 information structure
+; EAX = 0x36D76289  (Multiboot2 magic value)
+; EBX = physical address of the Multiboot2 information structure
 
 extern main ; Defined in kernel.c
 
@@ -34,9 +34,9 @@ header_start:
     ; Required end tag — signals the end of the tag list.
     ; Fields: type=0, flags=0, size=8.
 align 8
-    dw 0   ; type
-    dw 0   ; flags
-    dd 8   ; size
+    dw 0 ; type
+    dw 0 ; flags
+    dd 8 ; size
 header_end:
 
 ; Kernel entry point

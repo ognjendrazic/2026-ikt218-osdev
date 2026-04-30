@@ -18,7 +18,7 @@
 #define GAME_COL_MAX 78
 #define GAME_ROWS (GAME_ROW_MAX - GAME_ROW_MIN + 1) // 22
 #define GAME_COLS (GAME_COL_MAX - GAME_COL_MIN + 1) // 78
-#define MAX_SNAKE (GAME_ROWS * GAME_COLS)           // 1716
+#define MAX_SNAKE (GAME_ROWS * GAME_COLS) // 1716
 #define GAME_SPEED_MS 150u
 
 typedef struct

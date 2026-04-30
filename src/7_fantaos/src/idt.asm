@@ -67,11 +67,11 @@ ISR_NO_ERR 31 ; Reserved
 
 ; Common entry for all ISR stubs.
 ; Stack layout on entry (top = lowest address):
-;   [esp+ 0] int_no (pushed by stub)
-;   [esp+ 4] err_code (pushed by stub or CPU)
-;   [esp+ 8] eip (pushed by CPU)
-;   [esp+12] cs (pushed by CPU)
-;   [esp+16] eflags (pushed by CPU)
+; [esp+ 0] int_no (pushed by stub)
+; [esp+ 4] err_code (pushed by stub or CPU)
+; [esp+ 8] eip (pushed by CPU)
+; [esp+12] cs (pushed by CPU)
+; [esp+16] eflags (pushed by CPU)
 common_isr_stub:
     pusha ; Saves EAX,ECX,EDX,EBX,ESP,EBP,ESI,EDI
 
@@ -98,7 +98,7 @@ common_isr_stub:
     mov gs, ax
 
     popa
-    add esp, 8          ; Discard int_no and err_code
+    add esp, 8 ; Discard int_no and err_code
     iret
 
 ; IRQ macro: IRQs never push an error code, so always push dummy 0.

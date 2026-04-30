@@ -5,8 +5,8 @@
 // Segment selector byte offsets into the GDT.
 // Selector = (index * 8) | RPL | TI bits.
 // Ring 0, GDT: RPL=0, TI=0, so selector == index * 8.
-#define GDT_KERNEL_CODE 0x08  // Entry 1
-#define GDT_KERNEL_DATA 0x10  // Entry 2
+#define GDT_KERNEL_CODE 0x08 // Entry 1
+#define GDT_KERNEL_DATA 0x10 // Entry 2
 
 // One 8-byte GDT entry as described in Intel SDM Vol. 3A §3.4.5.
 // The packed attribute prevents the compiler from inserting padding bytes

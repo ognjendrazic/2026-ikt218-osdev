@@ -27,7 +27,7 @@ gdt_flush:
     lgdt [eax]
 
     ; Reload CS (code segment register) via a far jump.
-    ; CS cannot be changed with a simple mov — it must be updated through a
+    ; CS cannot be changed with a simple mov, it must be updated through a
     ; control-transfer instruction that encodes the new selector.
     ; The selector 0x08 is entry 1 in the GDT (1 × 8 bytes = 0x08),
     ; with RPL=0 (ring 0) and TI=0 (use GDT).
