@@ -7,7 +7,7 @@
 #define PIC2_COMMAND 0xA0
 #define PIC2_DATA 0xA1
 
-#define PIC_EOI 0x20  // End-of-interrupt command
+#define PIC_EOI 0x20 // End-of-interrupt command
 
 // Remap PIC1 to vectors 0x20-0x27 and PIC2 to 0x28-0x2F,
 // then mask all IRQs. Call before sti.

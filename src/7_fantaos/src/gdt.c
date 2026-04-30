@@ -19,13 +19,13 @@ extern void gdt_flush(uint32_t gdt_ptr_addr);
 // flags - 4-bit flags nibble: granularity (G), default size (D/B), long (L)
 static void set_entry(int idx, uint32_t base, uint32_t limit,
                       uint8_t access, uint8_t flags) {
-    gdt[idx].limit_low   = (uint16_t)(limit & 0xFFFF);
-    gdt[idx].base_low    = (uint16_t)(base  & 0xFFFF);
-    gdt[idx].base_mid    = (uint8_t)((base  >> 16) & 0xFF);
-    gdt[idx].access      = access;
+    gdt[idx].limit_low = (uint16_t)(limit & 0xFFFF);
+    gdt[idx].base_low = (uint16_t)(base & 0xFFFF);
+    gdt[idx].base_mid = (uint8_t)((base >> 16) & 0xFF);
+    gdt[idx].access = access;
     // Upper nibble = flags, lower nibble = limit bits 19:16
     gdt[idx].limit_flags = (uint8_t)(((limit >> 16) & 0x0F) | (flags << 4));
-    gdt[idx].base_high   = (uint8_t)((base  >> 24) & 0xFF);
+    gdt[idx].base_high = (uint8_t)((base >> 24) & 0xFF);
 }
 
 void gdt_init(void) {

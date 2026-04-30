@@ -47,5 +47,5 @@ gdt_flush:
     mov gs, ax
     mov ss, ax
 
-    ; Return to the C caller.  The stack is unchanged (cdecl: caller cleans up).
+    ; Return to the C caller. The stack is unchanged (cdecl: caller cleans up).
     ret

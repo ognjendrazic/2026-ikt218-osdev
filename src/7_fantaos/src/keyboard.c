@@ -6,7 +6,7 @@
 
 #define KEYBOARD_DATA_PORT 0x60
 
-// US QWERTY scancode set 1 — make codes only (0x00-0x7F).
+// US QWERTY scancode set 1, make codes only (0x00-0x7F).
 // 0 means the key has no printable ASCII representation.
 // '\b' and '\t' are omitted because terminal_putchar does not handle them.
 static const char scancode_table[128] = {

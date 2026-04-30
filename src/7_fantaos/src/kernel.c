@@ -72,7 +72,7 @@ void main(uint32_t magic, void *mbi) {
         if (c == 'g') {
             snake_run();
             // snake_run calls terminal_init() before returning, leaving the
-            // screen blank — reprint a short prompt so the user knows what to do.
+            // screen blank, reprint a short prompt so the user knows what to do.
             printf("Fanta OS\n\nSPACE: Play music   G: Snake\n");
         }
     }

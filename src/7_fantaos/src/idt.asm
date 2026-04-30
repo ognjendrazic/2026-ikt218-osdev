@@ -85,7 +85,7 @@ common_isr_stub:
     mov gs, ax
 
     ; Pass pointer to the full register frame to the C handler.
-    ; ESP currently points to the saved DS — that is the start of registers_t.
+    ; ESP currently points to the saved DS, that is the start of registers_t.
     push esp
     call isr_handler
     add esp, 4
